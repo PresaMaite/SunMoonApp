@@ -1,12 +1,12 @@
 
 import './App.css'
-import { Layout } from './layouts/layout'
+import { AppRouter } from './routes/AppRouter'
 
 
 function App() {
 
   return (
-    <Layout />
+    <AppRouter />
   )
 }
 

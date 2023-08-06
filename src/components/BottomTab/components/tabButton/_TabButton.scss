@@ -1,0 +1,47 @@
+@use "./../../../../styles/variables.scss" as colors;
+
+.tabButtons {
+    height: 100%;
+    width: 48px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    background-color: colors.$blackColor;
+    border: 0;
+
+    div {
+        height: 28px;
+        width: 28px;
+
+        background-color: colors.$strokeColor;
+
+        mask-size: cover;
+        -webkit-mask-size: cover;
+
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+    }
+
+    p {
+        padding: 0;
+        margin: 0;
+
+        color: colors.$strokeColor;
+    }
+}
+
+.activeTab {
+
+    div {
+        background-color: colors.$blueColor;
+    }
+    
+    p {
+        color: white;
+    }
+    
+}
