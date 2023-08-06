@@ -1,0 +1,31 @@
+@use "./../../styles/variables.scss" as colors;
+
+.searchContainer {
+    width: 100%;
+    position: relative;
+
+    .navInput {
+        height: 40px;
+        width: 100%;
+        background-color: colors.$inputColor;
+        border: 2px solid colors.$strokeColor;
+        border-radius: 24px;
+        padding: 0 24px;
+    }
+
+    .searchIcon {
+        position: absolute;
+        top: 50%;
+        right: 24px;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-color: colors.$strokeColor;
+        
+        -webkit-mask-image: url('./../../assets/icons/search.svg');
+        mask-image: url('./../../assets/icons/search.svg');
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+    }
+}
+
