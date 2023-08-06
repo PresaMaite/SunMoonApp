@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { NavBar } from "../components/NavBar/NavBar";
+import { BottomTab } from "../components/BottomTab/BottomTab";
+
 
 
 
@@ -14,5 +16,6 @@ export const Layout = () => {
         <>
             <NavBar handler={handlerSearch} />
             <h2>{search}</h2>
+            <BottomTab />
         </>
 )};

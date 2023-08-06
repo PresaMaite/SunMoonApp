@@ -1,0 +1,33 @@
+@use "./../../../../styles/variables.scss" as colors;
+.barContainer {
+    width: 100%;
+    position: relative;
+
+    .tabBar {
+        height: 4px;
+        width: 48px;
+    
+        position: absolute;
+        top: 0;
+    
+        background-color: colors.$yellowColor;
+        transform-origin: 50% 50%;
+    
+        transition: left 0.5s ease-in-out;
+    }
+}
+
+
+
+.tabBarHome {
+    left: 0%;
+}
+
+.tabBarUser {
+    left: calc(50% - 24px);
+}
+
+.tabBarShare {
+    left: calc(100% - 48px);
+}
+
