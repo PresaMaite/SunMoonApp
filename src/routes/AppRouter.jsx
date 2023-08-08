@@ -1,5 +1,9 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-import { Layout } from "../layouts/layout";
+
+import { Layout } from "./../layouts/Layout";
+import { Hour } from "../components/Hour/Hour";
+
+
 
 export const AppRouter = () => (
     <BrowserRouter>
@@ -7,7 +11,7 @@ export const AppRouter = () => (
         <Layout>
             
             <Routes>
-                <Route path="/" element="" ></Route>
+                <Route path="/" element={<Hour/>} ></Route>
                 <Route path="/user" element=""></Route>
                 <Route path="/share" element="" ></Route>
             </Routes>

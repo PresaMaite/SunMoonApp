@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { NavBar } from "../components/NavBar/NavBar";
 import { BottomTab } from "../components/BottomTab/BottomTab";
 
@@ -6,7 +7,7 @@ import { BottomTab } from "../components/BottomTab/BottomTab";
 
 
 
-export const Layout = () => {
+export const Layout = ({children}) => {
     const [search, setSearch] = useState('');
     
     const handlerSearch = (e) => 
@@ -16,6 +17,7 @@ export const Layout = () => {
         <>
             <NavBar handler={handlerSearch} />
             <h2>{search}</h2>
+            {children}
             <BottomTab />
         </>
 )};
