@@ -1,18 +1,14 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-import { Layout } from "../layouts/layout";
+
+import { Layout } from "./../layouts/Layout";
+
+
 
 export const AppRouter = () => (
     <BrowserRouter>
 
         <Layout>
-            
-            <Routes>
-                <Route path="/" element="" ></Route>
-                <Route path="/user" element=""></Route>
-                <Route path="/share" element="" ></Route>
-            </Routes>
-            
-
+        
         </Layout>
 
     
