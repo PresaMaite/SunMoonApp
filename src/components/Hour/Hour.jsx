@@ -1,9 +1,12 @@
 import "./_Hour.scss";
 
+import night from "./../../assets/img/cloudMoonFill.svg";
+import day from "./../../assets/img/cloudSunFill.svg";
+
 const month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
 
-export const Hour = ({requested_location, datetime}) => {
+export const Hour = ({timezone_location, datetime}) => {
     const newDate = datetime ? new Date(datetime) : new Date();
 
     const isDay = newDate.getHours() >= 6 && newDate.getHours() <= 18;
@@ -22,7 +25,9 @@ export const Hour = ({requested_location, datetime}) => {
             </div>
         </div>
 
-        <h6>{requested_location} · {newDate.getDate()} {month[newDate.getMonth()]} </h6>
+        <h6>{timezone_location} · {newDate.getDate()} {month[newDate.getMonth()]} </h6>
+
+        <img src={isDay ? day : night} alt={isDay ? "Sun image" : "Moon image"} />
     </main>
     
 )};
