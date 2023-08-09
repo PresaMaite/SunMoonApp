@@ -1,0 +1,17 @@
+@use "./../../styles/variables.scss" as colors;
+
+.footerStyles {
+    position: absolute;
+    bottom: 64px;
+
+    width: 100%;
+    text-align: center;
+}
+
+.footerDay {
+    color: colors.$strokeColor;
+}
+
+.footerNight {
+    color: white;
+}

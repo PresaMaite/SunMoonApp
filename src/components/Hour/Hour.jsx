@@ -16,7 +16,7 @@ export const Hour = ({timezone_location, datetime}) => {
         <div className="hourTitleContainer">
             <div className="hourContainer">
                 <p><small>{newDate.getHours() >= 0 && newDate.getHours() <= 11 ? "A.M" : "P.M"}</small></p>
-                <h3>{`${newDate.getHours()} : ${newDate.getMinutes()}`}</h3>
+                <h3>{`${newDate.getHours()}:${newDate.getMinutes()}`}</h3>
             </div>
 
             <div className="titleContainer">
