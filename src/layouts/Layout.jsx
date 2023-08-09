@@ -2,12 +2,12 @@ import { Route, Routes} from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
-import { Hour } from "../components/Hour/Hour";
 import { apiService } from "../services/apiServices";
 
 import { NavBar } from "../components/NavBar/NavBar";
+import { Hour } from "../components/Hour/Hour";
 import { BottomTab } from "../components/BottomTab/BottomTab";
-
+import { Footer } from "../components/Footer/Footer";
 
 
 export const Layout = () => {
@@ -33,5 +33,6 @@ export const Layout = () => {
                 <Route path="/share" element="" ></Route>
             </Routes>
             <BottomTab />
+            <Footer {...data} />
         </>
 )};
