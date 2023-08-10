@@ -11,7 +11,8 @@ import { Footer } from "../components/Footer/Footer";
 
 
 export const Layout = () => {
-    const [search, setSearch] = useState('Spain');
+
+    const [search, setSearch] = useState(localStorage.getItem("lastSearch") || "Spain");
     const [data, setData] = useState({});
     
     const handlerSearch = (e) => 
@@ -19,9 +20,9 @@ export const Layout = () => {
     
     useEffect(() => {
         apiService(search).then((data) => setData(data));
+        localStorage.setItem("lastSearch", search);
     
     }, [search]);
-
 
 
     return(
