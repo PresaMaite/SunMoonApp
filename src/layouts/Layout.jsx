@@ -1,6 +1,5 @@
 import { Route, Routes} from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useLayoutEffect, useMemo } from "react";
 
 import { apiService } from "../services/apiServices";
 
@@ -18,11 +17,13 @@ export const Layout = () => {
     const handlerSearch = (e) => 
         setSearch(e.target.value);
     
-    useEffect(() => {
-        apiService(search).then((data) => setData(data));
+    const memoizedApiService = useMemo(() => apiService, []);
+    
+    useLayoutEffect(() => {
+        memoizedApiService(search).then((data) => setData(data));
         localStorage.setItem("lastSearch", search);
     
-    }, [search]);
+    }, [search, memoizedApiService]);
 
 
     return(
