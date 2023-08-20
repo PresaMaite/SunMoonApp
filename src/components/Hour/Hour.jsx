@@ -1,15 +1,27 @@
 import "./_Hour.scss";
+import Lottie from 'lottie-react';
 
+import loading from "./../../assets/animations/SunmoonLoading.json";
 import night from "./../../assets/img/cloudMoonFill.svg";
 import day from "./../../assets/img/cloudSunFill.svg";
+import { useEffect, useState } from "react";
 
 const month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
 
 export const Hour = ({timezone_location, datetime}) => {
+    const [time, setTime] = useState(true)
 
     const newDate = new Date(datetime);
-    
+    const showLoading = time;
+
+    useEffect(() => {
+        setTimeout(() => {
+            setTime(false)
+        }, 4000);
+
+    }, []);
+
     let dateString = newDate.toLocaleString("es-ES", {
         hour: "2-digit",
         minute: "2-digit",
@@ -20,7 +32,7 @@ export const Hour = ({timezone_location, datetime}) => {
 
     return (
     <>
-        {datetime &&
+        {(!showLoading && datetime) &&
             <main className={`hourMainContainer ${isDay ? "dayStyles" : "nightStyles"}`} >
                 <div className="hourTitleContainer">
                     <div className="hourContainer">
@@ -38,6 +50,10 @@ export const Hour = ({timezone_location, datetime}) => {
 
                 <img src={isDay ? day : night} alt={isDay ? "Sun image" : "Moon image"} />
             </main>
+        }
+        
+        {(showLoading || !datetime) && 
+            <Lottie animationData={loading} className="loadingAnimation" />
         }
     </>
 )};
