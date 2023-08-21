@@ -34,7 +34,7 @@ export const Layout = () => {
                     <Outlet />
                 </DataContext.Provider>
 
-            <BottomTab />
+            <BottomTab responsive="mobileTab" />
             <Footer {...data} />
         </>
 )};
