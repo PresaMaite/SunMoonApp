@@ -1,0 +1,100 @@
+@use "./../../styles/_variables.scss" as colors;
+
+.hourMainContainer {
+    min-height: calc(100vh - 128px);
+
+    padding: 0 32px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+        .hourTitleContainer {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+
+            max-width: 326px;
+            width: 100%;
+
+            margin-top: 24px;
+        }
+}
+
+.hourContainer {
+    width: 214px;
+
+    font-size: 48px;
+
+    :first-child {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    h3 {
+        margin: 0;
+
+        font-family: "Digital Dismay";
+        font-weight: 100;
+        letter-spacing: 4px;
+    }
+}
+
+.titleContainer {
+    height: 118px;
+    width: 233px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    font-size: 32px;
+    font-weight: 400;
+
+    margin-left: -154px;
+
+    :first-child {
+        align-self: flex-start;
+        margin: 0;
+    }
+    :last-child {
+        align-self: flex-end;
+        margin: 0;
+        margin-top: -8px;
+    }
+}
+
+.nightStyles {
+    background-color: rgb(42, 42, 42);
+    color: white;
+
+    .titleContainer {
+
+        :last-child {
+            color: colors.$blueColor;
+        }
+    }
+
+}
+
+.dayStyles {
+    background-color: rgb(245, 243, 237);
+    color: black;
+
+    .titleContainer {
+
+        :last-child {
+            color: colors.$strYellowColor;
+            margin-right: 16px;
+        }
+    }
+}
+
+.loadingAnimation {
+    height: 124px;
+    width: 124px;
+
+    position: absolute;
+    top: calc(50% - 62px);
+    left: calc(50% - 62px);
+}
