@@ -1,6 +1,8 @@
 @use "./../../../../styles/variables.scss" as colors;
 .barContainer {
     width: 100%;
+    max-width: 800px;
+    
     position: relative;
 
     .tabBar {

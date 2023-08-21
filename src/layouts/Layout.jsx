@@ -1,13 +1,14 @@
-import { Route, Routes} from "react-router-dom";
-import { useState, useLayoutEffect, useMemo } from "react";
+import { createContext, useState, useLayoutEffect, useMemo } from "react";
+import { Outlet } from "react-router";
 
 import { apiService } from "../services/apiServices";
 
 import { NavBar } from "../components/NavBar/NavBar";
-import { Hour } from "../components/Hour/Hour";
 import { BottomTab } from "../components/BottomTab/BottomTab";
 import { Footer } from "../components/Footer/Footer";
 
+
+export const DataContext = createContext();
 
 export const Layout = () => {
 
@@ -29,11 +30,10 @@ export const Layout = () => {
     return(
         <>
             <NavBar handler={handlerSearch} />
-            <Routes>
-                <Route path="/" element={<Hour {...data} />} ></Route>
-                <Route path="/user" element=""></Route>
-                <Route path="/share" element="" ></Route>
-            </Routes>
+                <DataContext.Provider value={{ ...data }}>
+                    <Outlet />
+                </DataContext.Provider>
+
             <BottomTab />
             <Footer {...data} />
         </>

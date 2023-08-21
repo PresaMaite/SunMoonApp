@@ -1,16 +1,29 @@
 import "./_Hour.scss";
 import Lottie from 'lottie-react';
 
+import { useEffect, useState } from "react";
+import { useContext } from "react";
+
+import { DataContext } from "../../layouts/Layout";
+
 import loading from "./../../assets/animations/SunmoonLoading.json";
 import night from "./../../assets/img/cloudMoonFill.svg";
 import day from "./../../assets/img/cloudSunFill.svg";
-import { useEffect, useState } from "react";
+
+
 
 const month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
 
-export const Hour = ({timezone_location, datetime}) => {
+export const Hour = () => {
+    
+    const data = useContext(DataContext);
+    const datetime = data.datetime;
+
+    const timezone_location = data ? data.timezone_location : false;
+
     const [time, setTime] = useState(true)
+    
 
     const newDate = new Date(datetime);
     const showLoading = time;
@@ -20,7 +33,7 @@ export const Hour = ({timezone_location, datetime}) => {
             setTime(false)
         }, 4000);
 
-    }, []);
+    }, [data]);
 
     let dateString = newDate.toLocaleString("es-ES", {
         hour: "2-digit",
@@ -33,7 +46,7 @@ export const Hour = ({timezone_location, datetime}) => {
     return (
     <>
         {(!showLoading && datetime) &&
-            <main className={`hourMainContainer ${isDay ? "dayStyles" : "nightStyles"}`} >
+            <div className={`hourMainContainer ${isDay ? "dayStyles" : "nightStyles"}`} >
                 <div className="hourTitleContainer">
                     <div className="hourContainer">
                         <p><small>{newDate.getHours() >= 0 && newDate.getHours() <= 11 ? "A.M" : "P.M"}</small></p>
@@ -49,7 +62,7 @@ export const Hour = ({timezone_location, datetime}) => {
                 <h6>{timezone_location} · {newDate.getDate()} {month[newDate.getMonth()]} </h6>
 
                 <img src={isDay ? day : night} alt={isDay ? "Sun image" : "Moon image"} />
-            </main>
+            </div>
         }
         
         {(showLoading || !datetime) && 
