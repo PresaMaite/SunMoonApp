@@ -13,7 +13,7 @@ import share from "./../../assets/icons/share-fill.svg";
 
 
 
-export const BottomTab = () => {
+export const BottomTab = ({responsive, order}) => {
 
     const [active, setActive] = useState("Home");
 
@@ -25,8 +25,8 @@ export const BottomTab = () => {
 
 
     return(
-        <div className="bottomTab">
-            <TabBar isHome={active === "Home"} isUser={active === "User"} isShare={active === "Share"} />
+        <div className={`bottomTab ${responsive}`} style={{backgroundColor: order >= 2 ? "inherit" : "#242526"}}>
+            <TabBar order={order} isHome={active === "Home"} isUser={active === "User"} isShare={active === "Share"} />
 
             <div className="tabBtnContainer">
                 <Link to="home">

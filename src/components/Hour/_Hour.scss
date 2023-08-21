@@ -1,4 +1,4 @@
-@use "./../../styles/variables.scss" as colors;
+@use "./../../styles/_variables.scss" as colors;
 
 .hourMainContainer {
     min-height: calc(100vh - 128px);
@@ -65,7 +65,7 @@
 }
 
 .nightStyles {
-    background: linear-gradient(colors.$blackColor 25%, colors.$blueColor);
+    background-color: rgb(42, 42, 42);
     color: white;
 
     .titleContainer {
@@ -78,7 +78,7 @@
 }
 
 .dayStyles {
-    background: linear-gradient(white 25%, colors.$yellowColor);
+    background-color: rgb(245, 243, 237);
     color: black;
 
     .titleContainer {
