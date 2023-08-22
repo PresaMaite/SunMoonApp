@@ -15,7 +15,7 @@ import day from "./../../assets/img/cloudSunFill.svg";
 const month= ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
 
-export const Hour = () => {
+export const Hour = ({isDay}) => {
     
     const data = useContext(DataContext);
     const datetime = data.datetime;
@@ -39,14 +39,12 @@ export const Hour = () => {
         hour: "2-digit",
         minute: "2-digit",
       });
-
-    const isDay = newDate.getHours() >= 6 && newDate.getHours() <= 18;
     
 
     return (
     <>
         {(!showLoading && datetime) &&
-            <div className={`hourMainContainer ${isDay ? "dayStyles" : "nightStyles"}`} >
+            <div className="hourMainContainer" >
                 <div className="hourTitleContainer">
                     <div className="hourContainer">
                         <p><small>{newDate.getHours() >= 0 && newDate.getHours() <= 11 ? "A.M" : "P.M"}</small></p>

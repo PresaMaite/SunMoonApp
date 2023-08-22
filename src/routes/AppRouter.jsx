@@ -10,8 +10,9 @@ export const AppRouter = () => (
   <BrowserRouter>
 
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="home" />} />
+      <Route element={<Layout />} >
+        <Route path="/" element={<Navigate to="/home"/>} />
+ 
         <Route path="home" element={<Home />} />
 
         <Route path="user" element={<User />} />
