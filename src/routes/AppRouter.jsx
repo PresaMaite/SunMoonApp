@@ -13,10 +13,10 @@ export const AppRouter = () => (
       <Route element={<Layout />} >
         <Route path="/" element={<Navigate to="/home"/>} />
  
-        <Route path="home" element={<Home />} />
+        <Route path="/home" element={<Home />} />
 
-        <Route path="user" element={<User />} />
-        <Route path="share" element={<Share />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/share" element={<Share />} />
 
       </Route>
     </Routes>
