@@ -1,7 +1,10 @@
 @use "./../../styles/_variables.scss" as colors;
 
 .hourMainContainer {
-    min-height: calc(100vh - 128px);
+
+    position: absolute;
+    top: calc(50vh - 240px);
+    left: calc(50vw - 178px);
 
     padding: 0 32px;
 

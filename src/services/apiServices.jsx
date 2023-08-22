@@ -6,7 +6,7 @@ export const apiService = async (location) => {
     try {
         const response = await fetch(`${BASE_URL}${location}`);
         jsonData = await response.json();
-  
+        await new Promise(resolve => setTimeout(resolve, 3000));
       } catch (error) {
         console.error('Error fetching data:', error);
       }
