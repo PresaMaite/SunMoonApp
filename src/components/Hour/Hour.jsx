@@ -1,9 +1,7 @@
 import "./_Hour.scss";
 import Lottie from 'lottie-react';
 
-import { useEffect, useState } from "react";
 import { useContext } from "react";
-
 import { DataContext } from "../../layouts/Layout";
 
 import loading from "./../../assets/animations/SunmoonLoading.json";
@@ -21,19 +19,8 @@ export const Hour = ({isDay}) => {
     const datetime = data.datetime;
 
     const timezone_location = data ? data.timezone_location : false;
-
-    const [time, setTime] = useState(true)
     
-
     const newDate = new Date(datetime);
-    const showLoading = time;
-
-    useEffect(() => {
-        setTimeout(() => {
-            setTime(false)
-        }, 4000);
-
-    }, [data]);
 
     let dateString = newDate.toLocaleString("es-ES", {
         hour: "2-digit",
@@ -43,7 +30,7 @@ export const Hour = ({isDay}) => {
 
     return (
     <>
-        {(!showLoading && datetime) &&
+        {datetime &&
             <div className="hourMainContainer" >
                 <div className="hourTitleContainer">
                     <div className="hourContainer">
@@ -63,7 +50,7 @@ export const Hour = ({isDay}) => {
             </div>
         }
         
-        {(showLoading || !datetime) && 
+        {!datetime && 
             <Lottie animationData={loading} className="loadingAnimation" />
         }
     </>

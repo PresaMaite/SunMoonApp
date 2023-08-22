@@ -15,8 +15,11 @@ export const Layout = () => {
     const [search, setSearch] = useState(localStorage.getItem("lastSearch") || "Spain");
     const [data, setData] = useState({});
     
-    const handlerSearch = (e) => 
+    const handlerSearch = (e) => {
+        setData(null);
         setSearch(e.target.value);
+    }
+        
     
     const memoizedApiService = useMemo(() => apiService, []);
     

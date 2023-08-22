@@ -11,13 +11,16 @@ import { DataContext } from "../../layouts/Layout";
 
 
 export const Home = () => {
+
     const data = useContext(DataContext);
     const datetime = data.datetime;
     const newDate = new Date(datetime);
     const isDay = newDate.getHours() >= 6 && newDate.getHours() <= 18;
 
+
+
     return(
-        <main className= {`hourPage ${isDay ? "dayStyles" : "nightStyles"}`}>
+        <main className= {`hourPage ${(isDay || !datetime) ? "dayStyles" : "nightStyles"}`}>
 
             <Hour isDay={isDay} />
 
