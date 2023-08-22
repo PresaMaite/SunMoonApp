@@ -8,7 +8,8 @@ export const Search = ({handler}) => (
             id="" 
             name="" 
             placeholder="Search..." 
-            onKeyDown={(event) => event.key === "Enter" && handler(event)} />
+            onKeyDown={(event) => (event.key === "Enter" && event.target.value) && handler(event)}
+        />
 
         <span className="searchIcon" />
     </div>
